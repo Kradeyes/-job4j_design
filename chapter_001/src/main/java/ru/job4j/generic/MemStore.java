@@ -26,7 +26,8 @@ public final class MemStore<T extends Base> implements Store<T> {
     public boolean delete(String id) {
         int index = indexOf(id);
         if (index != -1) {
-          return mem.remove(mem.get(index));
+            mem.remove(index);
+          return true;
         }
         return false;
     }
