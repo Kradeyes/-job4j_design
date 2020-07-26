@@ -3,12 +3,10 @@ package ru.job4j.collection;
 public class Node<T> {
     private T model;
     private Node<T> next;
-    private Node<T> prev;
 
-        Node(T model, Node<T> next, Node<T> prev) {
+        Node(T model, Node<T> next) {
         this.model = model;
         this.next = next;
-        this.prev = prev;
     }
 
     public T getModel() {
@@ -17,5 +15,9 @@ public class Node<T> {
 
     public Node<T> getNext() {
         return next;
+    }
+
+    public void setNext(Node<T> next) {
+        this.next = next;
     }
 }

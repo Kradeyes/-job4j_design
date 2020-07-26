@@ -9,20 +9,20 @@ public class SimpleLinked<T> implements Iterable<T> {
     private int modCount = 0;
 
     public SimpleLinked() {
-        lstNode = new Node<>(null, null, fstNode);
-        fstNode = new Node<>(null, lstNode, null);
+        lstNode = null;
+        fstNode = null;
     }
 
     public void add(T model) {
-       Node<T> value = new Node<>(model, null, null);
+       Node<T> value = new Node<>(model, null);
        size++;
        modCount++;
        if (fstNode == null) {
           fstNode = value;
           lstNode = fstNode;
        } else {
-           value = lstNode;
-           lstNode = new Node<>(model, null, value);
+           lstNode.setNext(value);
+           lstNode = value;
        }
     }
 
