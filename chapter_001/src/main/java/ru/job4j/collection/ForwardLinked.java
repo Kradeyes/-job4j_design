@@ -36,6 +36,19 @@ public class ForwardLinked<T> implements Iterable<T> {
         return temp.getValue();
     }
 
+    public void revert() {
+        Node<T> prev = null;
+        Node<T> current = head;
+        Node<T> next;
+        while (current != null) {
+            next = current.getNext();
+            current.setNext(prev);
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
     public T deleteLast() {
         T rsl;
         if (head == null) {
