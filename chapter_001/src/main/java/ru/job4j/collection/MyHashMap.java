@@ -78,8 +78,7 @@ public class MyHashMap<K, V> implements Iterable<K> {
 
     public V get(K key) {
         Entry value = entriesContainer[indexOf(key)];
-
-        return value == null ? null : (V) value.value;
+        return value  == null ? null : (V) value.value;
     }
 
     public boolean delete(K key) {
