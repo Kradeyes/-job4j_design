@@ -51,7 +51,7 @@ public class MyHashMap<K, V> implements Iterable<K> {
         int index = indexOf(key);
         if (count >= entriesContainer.length * loadFactor) {
             capacity = entriesContainer.length * 2;
-            shift();
+            entriesContainer = shift();
         }
         if (entriesContainer[index] == null) {
             entriesContainer[index] = newNode;
