@@ -1,22 +1,24 @@
 package ru.job4j.collection;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Analyze {
     public Info diff(List<User> previous, List<User> current) {
         Info info = new Info();
+        Map<Integer, String> currentMap = current.stream()
+                .collect(Collectors.toMap(User::getId, User::getName));
         for (User user : previous) {
-            int indexInCurrent = current.indexOf(user);
-            if (indexInCurrent == -1) {
+            if (!currentMap.containsKey(user.id)) {
                 info.deleted++;
             } else {
-                User currentUser = current.remove(indexInCurrent);
-                if (!user.name.equals(currentUser.name)) {
+                String currentUserName = currentMap.remove(user.id);
+                if (user.name.equals(currentUserName)) {
                     info.changed++;
                 }
             }
         }
-        info.added = current.size();
+        info.added = currentMap.size();
         return info;
     }
 
@@ -57,6 +59,14 @@ public class Analyze {
         @Override
         public int hashCode() {
             return Objects.hash(id);
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
         }
     }
 
