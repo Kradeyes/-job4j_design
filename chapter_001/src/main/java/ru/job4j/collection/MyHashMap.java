@@ -60,7 +60,9 @@ public class MyHashMap<K, V> implements Iterable<K> {
             result = true;
         } else {
             entriesContainer[index] = newNode;
+            modCount++;
         }
+
         return result;
     }
 
