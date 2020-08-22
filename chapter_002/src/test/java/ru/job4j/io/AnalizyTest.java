@@ -24,7 +24,7 @@ public class AnalizyTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        assertEquals(expected,
+        assertThat(expected,
                 is(result.toString())
         );
     }
