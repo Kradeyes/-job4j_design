@@ -58,9 +58,11 @@ public class MyHashMap<K, V> implements Iterable<K> {
             modCount++;
             count++;
             result = true;
-        } else {
+        } else if (entriesContainer[index] != null
+                && Objects.equals(entriesContainer[index].key, key)) {
             entriesContainer[index] = newNode;
             modCount++;
+            result = true;
         }
 
         return result;
@@ -82,7 +84,10 @@ public class MyHashMap<K, V> implements Iterable<K> {
 
     public V get(K key) {
         Entry value = entriesContainer[indexOf(key)];
-        return value  == null ? null : (V) value.value;
+        if (value != null && !Objects.equals(value.key, key)) {
+            return (V) value.value;
+        }
+        return null;
     }
 
     public boolean delete(K key) {
