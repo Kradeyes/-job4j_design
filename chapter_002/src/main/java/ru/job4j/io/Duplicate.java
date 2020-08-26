@@ -13,25 +13,20 @@ public class Duplicate {
     public static void main(String[] args) throws IOException {
         Path start = Paths.get(".");
         duplicateSearch(start);
-        System.out.println("Count off duplicates: " + count);
     }
 
     public static void duplicateSearch(Path root) throws IOException {
-        List<Path> allPaths;
-        List<File> allFiles = new ArrayList<>();
+        Map<String, Long> allPaths;
+        Map<String, Long> dupPaths;
         AddFiles add = new AddFiles();
         Files.walkFileTree(root, add);
         allPaths = add.getPaths();
-        for (Path path : allPaths) {
-            allFiles.add(path.toFile());
+        dupPaths = add.dup();
+        System.out.println("Count without duplicates " + allPaths.size());
+        System.out.println("Count off duplicates: " + dupPaths.size());
+        System.out.println("Duplicates list:");
+        for (Map.Entry<String, Long> entry: dupPaths.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
-        Collections.sort(allFiles);
-        for (int i = 0; i < allFiles.size() - 1; i++) {
-            if (allFiles.get(i).getName().equals(allFiles.get(i + 1).getName())
-                    && allFiles.get(i).length() == allFiles.get(i + 1).length()) {
-                System.out.println(allFiles.get(i).getName() + " " + allFiles.get(i).length());
-                count++;
-            }
         }
     }
-}
