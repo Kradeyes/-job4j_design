@@ -37,6 +37,14 @@ public class Zip {
         }
     }
 
+    public List<Path> search(ArgZip argZip) throws IOException {
+        Path root = Paths.get(argZip.directory());
+        SearchFiles searchFiles = new SearchFiles(p -> p.toFile()
+                .getName().endsWith(argZip.exclude()));
+        Files.walkFileTree(root, searchFiles);
+        return searchFiles.getPaths();
+    }
+
     public static void main(String[] args) throws IOException {
         new Zip().packSingleFile(
                 new File("./chapter_005/pom.xml"),
@@ -45,13 +53,7 @@ public class Zip {
         ArgZip argZip = new ArgZip(args);
         if (argZip.valid()) {
             Zip zip = new Zip();
-            Path root = Paths.get(argZip.directory());
-            SearchFiles searchFiles = new SearchFiles(p -> p.toFile()
-                    .getName().endsWith(argZip.exclude()));
-            Files.walkFileTree(root, searchFiles);
-            List<Path> file = searchFiles.getPaths();
-            File target = new File(argZip.output());
-            zip.packFiles(file, target);
+            zip.packFiles(zip.search(argZip), new File(argZip.output()));
         }
     }
 }
