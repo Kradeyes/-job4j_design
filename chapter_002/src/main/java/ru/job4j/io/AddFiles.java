@@ -15,11 +15,14 @@ public class AddFiles extends SimpleFileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
-        if (!result.containsKey(file.toFile().getName())
-                && !result.containsValue(result.get(file.toFile().getName()))) {
+        if (!result.containsKey(file.toFile().getName())) {
             result.put(file.toFile().getName(), file.toFile().length());
         } else {
-            dup.put(file.toFile().getName(), file.toFile().length());
+            if (!result.containsValue(result.get(file.toFile().getName()))) {
+                result.put(file.toFile().getName(), file.toFile().length());
+            } else {
+                dup.put(file.toFile().getName(), file.toFile().length());
+            }
         }
         return FileVisitResult.CONTINUE;
     }
