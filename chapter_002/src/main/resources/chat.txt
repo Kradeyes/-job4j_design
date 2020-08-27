@@ -1,0 +1,15 @@
+User hi
+Bot Maybe
+User ksdfjks
+Bot Hello
+User lksdfk
+Bot Maybe
+User stop
+User lkfl;skdf
+User dfkjsdkfj
+User djsflkds
+User continue
+User kfjskdfj
+Bot I don`t know
+User stop
+User exit
