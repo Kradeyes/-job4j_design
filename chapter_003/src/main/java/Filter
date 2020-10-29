@@ -5,3 +5,4 @@ select * from product where price = (select MAX(price) from product);
 select t.name,count(p.id) from product as p JOIN type as t ON (p.type_id = t.type_id) group by type_name;
 select * from product as p JOIN type as t ON (p.type_id = t.type_id) where type_id = 'СЫР' and type_id = 'МОЛОКО';
 select t.name,count(*) from product as p JOIN type as t ON (p.type_id = t.type_id) group by type_name HAVING count(*) > 10;
+select p.name,t.name from product as p JOIN type as t ON (p.type_id = t.type_id);
