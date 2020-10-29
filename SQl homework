@@ -1,0 +1,15 @@
+create database organization;
+
+create table employees (
+id serial primary key,
+first_name varchar(255),
+salary numeric,
+department_name text
+);
+
+insert into employees(first_name, salary, department_name)
+values ('Roman',2000,'IT');
+
+update employees set salary = 5000;
+
+delete from employees;
