@@ -7,8 +7,13 @@ create table rights(
 
 create table role (
  role_id serial primary key,
- role_name varchar(255) not null ,
- role_right int references rights(right_id)
+ role_name varchar(255) not null
+);
+
+create table role_rights (
+ right_id serial primary key,
+ role int references role(role_id) ,
+ right int references rights(right_id)
 );
 
 create table users (
@@ -56,5 +61,3 @@ insert into issues_state values ('Treatment');
 insert into issues_attachments values ('Technical Task');
 insert into issues(issues_name, type, state, file) values ('Make new site',1,1,1);
 insert into issues_comments(comment, issue) values ('Make in a week',1);
-
-
