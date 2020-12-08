@@ -16,20 +16,20 @@ class Tree<E> implements SimpleTree<E> {
         Optional<Node<E>> parentNode = findBy(parent);
         Optional<Node<E>> childNode = findBy(child);
         if (childNode.isEmpty()) {
-            parentNode.ifPresent(eNode -> eNode.children.add(new Node<>((E) child)));
+            parentNode.ifPresent(eNode -> eNode.getChildren().add(new Node<>((E) child)));
             rsl = true;
         }
         return rsl;
     }
 
     public boolean isBinary() {
-        Optional<Node<E>> rsl = findElem(el -> el.children.size() > 2);
+        Optional<Node<E>> rsl = findElem(el -> el.getChildren().size() > 2);
         return rsl.isEmpty();
  }
 
     @Override
     public Optional<Node<E>> findBy(Object value) {
-        return findElem(el -> el.value.equals(value));
+        return findElem(el -> el.getValue().equals(value));
     }
 
     public Optional<Node<E>> findElem(Predicate<Node<E>> predicate) {
@@ -42,7 +42,7 @@ class Tree<E> implements SimpleTree<E> {
                 rsl = Optional.of(el);
                 break;
             }
-            data.addAll(el.children);
+            data.addAll(el.getChildren());
         }
         return rsl;
     }

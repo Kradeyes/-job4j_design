@@ -71,8 +71,20 @@ public class Analyze {
     }
 
     public static class Info {
-        int added;
-        int changed;
-        int deleted;
+        private int added;
+        private int changed;
+        private int deleted;
+
+        public int getAdded() {
+            return added;
+        }
+
+        public int getChanged() {
+            return changed;
+        }
+
+        public int getDeleted() {
+            return deleted;
+        }
     }
 }

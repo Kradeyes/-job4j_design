@@ -22,7 +22,7 @@ public class AnalyzeTest {
         previous.add(second);
         current.add(sameFirst);
         current.add(third);
-        assertEquals(1, newAnalyze.diff(previous, current).added);
+        assertEquals(1, newAnalyze.diff(previous, current).getAdded());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class AnalyzeTest {
         current.add(third);
         current.add(sameId);
         current.add(sameFirst);
-        assertEquals(1, newAnalyze.diff(previous, current).changed);
+        assertEquals(1, newAnalyze.diff(previous, current).getChanged());
     }
 
     @Test
@@ -43,6 +43,6 @@ public class AnalyzeTest {
         current.add(second);
         current.remove(first);
         current.remove(second);
-        assertEquals(2, newAnalyze.diff(previous, current).deleted);
+        assertEquals(2, newAnalyze.diff(previous, current).getDeleted());
     }
 }

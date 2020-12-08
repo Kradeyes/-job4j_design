@@ -11,11 +11,22 @@ public interface SimpleTree<E> {
     Optional<Node<E>> findBy(E value);
 
     class Node<E> {
-         E value;
-         List<Node<E>> children = new ArrayList<>();
+
+        private List<Node<E>> children = new ArrayList<>();
+
+        private E value;
 
         public Node(E value) {
             this.value = value;
         }
+
+        public List<Node<E>> getChildren() {
+            return children;
+        }
+
+        public E getValue() {
+            return value;
+        }
+
     }
 }
