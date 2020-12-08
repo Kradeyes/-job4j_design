@@ -1,0 +1,7 @@
+[0.007s][info][gc] Using G1
+[0.022s][info][gc] Periodic GC disabled
+[0.058s][info][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 1M->0M(4M) 1.479ms
+[0.095s][info][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 1M->1M(4M) 1.451ms
+[0.114s][info][gc] GC(2) To-space exhausted
+[0.114s][info][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 2M->2M(4M) 2.596ms
+[0.125s][info][gc] GC(3) Pause Full (System.gc()) 2M->2M(4M) 6.383ms
