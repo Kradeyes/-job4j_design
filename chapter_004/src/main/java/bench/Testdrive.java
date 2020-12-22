@@ -1,3 +1,5 @@
+package bench;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
