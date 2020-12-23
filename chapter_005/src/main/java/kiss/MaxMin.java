@@ -1,3 +1,5 @@
+package kiss;
+
 import java.util.Comparator;
 import java.util.List;
 
