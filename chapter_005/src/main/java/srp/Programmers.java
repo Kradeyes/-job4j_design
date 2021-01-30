@@ -3,7 +3,7 @@ package srp;
 import org.apache.commons.text.StringEscapeUtils;
 import java.util.function.Predicate;
 
-public class Programmers {
+public class Programmers implements Report {
     private Store store;
 
     public Programmers(Store store) {

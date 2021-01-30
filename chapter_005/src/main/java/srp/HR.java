@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class HR {
+public class HR implements Report {
     private Store store;
 
     public HR(Store store) {

@@ -2,7 +2,7 @@ package srp;
 
 import java.util.function.Predicate;
 
-public class Bookkeeping {
+public class Bookkeeping implements Report {
     private Store store;
 
     public Bookkeeping(Store store) {
