@@ -1,5 +1,8 @@
 package ru.job4j.io.serialization;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.*;
 import java.nio.file.Files;
 
@@ -46,6 +49,31 @@ public class Contact implements Serializable {
                      new ObjectInputStream(fis)) {
             final Contact contactFromFile = (Contact) ois.readObject();
             System.out.println(contactFromFile);
+
+            final Person person = new Person(false, 30, new Contact(123154,"11-111"),
+                    "Worker", "Married");
+            System.out.println(person.toString());
+
+            /* Преобразуем объект person в json-строку. */
+            final Gson gson = new GsonBuilder().create();
+            System.out.println(gson.toJson(person));
+
+            /* Модифицируем json-строку */
+            final String personJson =
+                    "{"
+                            + "\"sex\":false,"
+                            + "\"age\":35,"
+                            + "\"contact\":"
+                            + "{"
+                            + "\"zipCode\":123456,"
+                            + "\"phone\":\"+7(924)111-111-11-11\""
+                            + "},"
+                            + "\"statuses\":"
+                            + "[\"Student\",\"Free\"]"
+                            + "}";
+            final Person personMod = gson.fromJson(personJson, Person.class);
+            System.out.println(personMod);
         }
     }
 }
+
