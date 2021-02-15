@@ -2,10 +2,18 @@ package ru.job4j.io.serialization;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sun.xml.txw2.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
 
+@XmlElement(value = "token")
 public class Token {
-    private final int number;
-    private final String zooName;
+    @XmlAttribute
+    private  int number;
+
+    @XmlAttribute
+    private  String zooName;
+
+    public Token() { }
 
     public Token(int number, String zooName) {
         this.number = number;

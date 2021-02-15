@@ -2,14 +2,22 @@ package ru.job4j.io.serialization;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sun.xml.txw2.annotation.XmlElement;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import java.io.*;
 import java.nio.file.Files;
 
+@XmlElement(value = "contact")
 public class Contact implements Serializable {
     private static final long serialVersionUID = 1L;
-    private final int zipCode;
-    private final String phone;
+
+    @XmlAttribute
+    private int zipCode;
+    @XmlAttribute
+    private String phone;
+
+    public Contact() { }
 
     public Contact(int zipCode, String phone) {
         this.zipCode = zipCode;
