@@ -1,5 +1,7 @@
 package srp;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.util.function.Predicate;
@@ -21,7 +23,8 @@ public class JsonReports implements Report {
                     .append(employee.getFired()).append(";")
                     .append(employee.getSalary()).append(";");
         }
-        return StringEscapeUtils.escapeJson(text.toString());
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(text);
     }
 }
 

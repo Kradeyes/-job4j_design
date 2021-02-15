@@ -14,13 +14,17 @@ public class XmlReports implements Report {
     @Override
     public String generate(Predicate<Employee> filter) {
         StringBuilder text = new StringBuilder();
-        text.append("Name; Hired; Fired; Salary;");
+        text.append("<Employees>");
         for (Employee employee : store.findBy(filter)) {
-            text.append(employee.getName()).append(";")
-                    .append(employee.getHired()).append(";")
-                    .append(employee.getFired()).append(";")
-                    .append(employee.getSalary()).append(";");
+            text.append("<Employee>")
+                    .append("<Name>")
+                    .append(employee.getName())
+                    .append("</Name>")
+                    .append("<Salary>")
+                    .append(employee.getSalary())
+                    .append("</Salary>")
+                    .append("</Employee>");
         }
-        return StringEscapeUtils.escapeXml11(text.toString());
+        return text.toString();
     }
 }
