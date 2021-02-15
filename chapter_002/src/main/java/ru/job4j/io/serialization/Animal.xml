@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<animal>
+    <sex>false</sex>
+    <age>5</age>
+
+    <token>
+    <number>1245</number>>
+    <zooname>NewYorkZoo</zooname>
+    </token>
+
+    <habitates>
+        <habitat>Africa</habitat>
+        <habitat>Brazil</habitat>
+    </habitates>
+</animal>
