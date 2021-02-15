@@ -20,6 +20,14 @@ public class Token {
         this.zooName = zooName;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public String getZooName() {
+        return zooName;
+    }
+
     @Override
     public String toString() {
         return "Token{" +
