@@ -17,7 +17,7 @@ public class Trash implements Storage {
 
     @Override
     public List<Food> getAll() {
-        List<Food> copy = trash;
+        List<Food> copy = new ArrayList<>(trash);
         trash.clear();
         return copy;
     }

@@ -19,7 +19,7 @@ public class Shop implements  Storage {
 
     @Override
     public List<Food> getAll() {
-        List<Food> copy = shop;
+        List<Food> copy = new ArrayList<>(shop);
         shop.clear();
         return copy;
     }
