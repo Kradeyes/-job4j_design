@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouse implements Storage {
-    private final List<Food> warehouse = new ArrayList<>();
+    private List<Food> warehouse = new ArrayList<>();
 
     @Override
     public boolean accept(Food food, double qualityPercent) {
@@ -15,9 +15,16 @@ public class Warehouse implements Storage {
         return rsl;
     }
 
+    @Override
+    public List<Food> getAll() {
+        List<Food> copy = warehouse;
+        warehouse.clear();
+        return copy;
+    }
+
     /*
-    Only for Test
-    */
+        Only for Test
+        */
     @Override
     public String toString() {
         return warehouse.get(0).getName();

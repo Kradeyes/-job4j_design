@@ -3,7 +3,7 @@ package lsp;
 import java.util.*;
 
 public class Shop implements  Storage {
-     private  final List<Food> shop = new ArrayList<>();
+     private List<Food> shop = new ArrayList<>();
 
     @Override
     public boolean accept(Food food, double qualityPercent) {
@@ -17,9 +17,16 @@ public class Shop implements  Storage {
         return rsl;
     }
 
+    @Override
+    public List<Food> getAll() {
+        List<Food> copy = shop;
+        shop.clear();
+        return copy;
+    }
+
     /*
-   Only for Test
-   */
+       Only for Test
+       */
     @Override
     public String toString() {
         return shop.get(0).getName() + " " + shop.get(0).getPrice();

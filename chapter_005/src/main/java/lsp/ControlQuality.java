@@ -2,6 +2,7 @@ package lsp;
 
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ControlQuality {
   private final List<Storage> storageList;
@@ -23,6 +24,14 @@ public class ControlQuality {
 
     public List<Storage> getStorageList() {
         return storageList;
+    }
+
+    public void resort() {
+        List<Food> foods = storageList.stream()
+                .map(Storage::getAll)
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+        acceptAll(foods);
     }
 
     public double findPercent(Food food) {

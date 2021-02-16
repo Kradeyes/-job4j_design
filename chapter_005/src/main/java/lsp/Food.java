@@ -57,4 +57,5 @@ public class Food {
     public void setDiscount(double discount) {
         this.discount = discount;
     }
+
 }
