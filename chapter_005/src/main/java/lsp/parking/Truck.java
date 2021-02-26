@@ -1,4 +1,4 @@
 package lsp.parking;
 
-public class Truck {
+public class Truck extends Machine {
 }
