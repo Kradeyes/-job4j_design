@@ -10,7 +10,7 @@ public class Parking implements TryToPark {
     }
 
     @Override
-    public boolean acceptAll(List<Machine> allMachine) {
+    public boolean acceptAll(List<Machine> allMachines) {
         return false;
     }
 

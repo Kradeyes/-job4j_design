@@ -6,7 +6,7 @@ public interface TryToPark {
 
     boolean accept(Machine machine);
 
-    boolean acceptAll(List<Machine> allMachine);
+    boolean acceptAll(List<Machine> allMachines);
 
     boolean remove(String number);
 }
